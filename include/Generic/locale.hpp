@@ -16,26 +16,26 @@
 
 namespace Generic
 {
-    inline const auto& getCLocale()
+    inline const auto& get_c_locale()
     {
         static const std::locale cLocale{ "C" };
         return cLocale;
     }
 
-    inline const auto& getSystemLocale()
+    inline const auto& get_system_locale()
     {
         static const std::locale systemLocale{ "" };
         return systemLocale;
     }
 
-    inline const auto& getDefaultLocale()
+    inline const auto& get_default_locale()
     {
         static const std::locale defaultLocale{ GENERIC_LOCALE_DEFAULT_LOCALE };
         return defaultLocale;
     }
 
     template<class ElemT>
-    inline const auto& getFacet(const std::locale& locale)
+    inline const auto& get_facet(const std::locale& locale)
     {
         return std::use_facet<std::ctype<ElemT>>(locale);
     }

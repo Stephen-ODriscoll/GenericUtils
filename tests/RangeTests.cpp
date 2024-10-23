@@ -12,11 +12,11 @@
 class RangeTests : public testing::Test
 {
 public:
-    const Generic::IntRange intRange1{ 0, 0 };
-    const Generic::IntRange intRange2{ 0, 0 };
-    const Generic::IntRange intRange3{ 1, 6 };
-    const Generic::IntRange intRange4{ 2, 8 };
-    const Generic::IntRange intRange5{ 6, 9 };
+    const Generic::int_range intRange1{ 0, 0 };
+    const Generic::int_range intRange2{ 0, 0 };
+    const Generic::int_range intRange3{ 1, 6 };
+    const Generic::int_range intRange4{ 2, 8 };
+    const Generic::int_range intRange5{ 6, 9 };
 
 protected:
     RangeTests() {}
@@ -25,7 +25,7 @@ protected:
 
 TEST_F(RangeTests, TestRangeSanity)
 {
-    Generic::IntRange intRange{ 1, 2 };
+    Generic::int_range intRange{ 1, 2 };
 
     ASSERT_EQ(intRange.begin, 1);
     ASSERT_EQ(intRange.end, 2);
@@ -40,14 +40,14 @@ TEST_F(RangeTests, TestRangeSanity)
 
 TEST_F(RangeTests, TestRangeCopyConstructor)
 {
-    Generic::IntRange intRange{ 1, 2 };
+    Generic::int_range intRange{ 1, 2 };
 
     ASSERT_EQ(intRange.begin, 1);
     ASSERT_EQ(intRange.end, 2);
 
     ASSERT_EQ(intRange.size(), 1);
 
-    Generic::IntRange intRange2{ intRange };
+    Generic::int_range intRange2{ intRange };
 
     ASSERT_EQ(intRange2.begin, 1);
     ASSERT_EQ(intRange2.end, 2);
@@ -57,12 +57,12 @@ TEST_F(RangeTests, TestRangeCopyConstructor)
 
 TEST_F(RangeTests, TestRangeIsEqual)
 {
-    ASSERT_TRUE(intRange1.isEqual(intRange2));
-    ASSERT_TRUE(intRange2.isEqual(intRange1));
-    ASSERT_FALSE(intRange3.isEqual(intRange4));
-    ASSERT_FALSE(intRange4.isEqual(intRange3));
-    ASSERT_FALSE(intRange3.isEqual(intRange5));
-    ASSERT_FALSE(intRange5.isEqual(intRange3));
+    ASSERT_TRUE(intRange1.is_equal(intRange2));
+    ASSERT_TRUE(intRange2.is_equal(intRange1));
+    ASSERT_FALSE(intRange3.is_equal(intRange4));
+    ASSERT_FALSE(intRange4.is_equal(intRange3));
+    ASSERT_FALSE(intRange3.is_equal(intRange5));
+    ASSERT_FALSE(intRange5.is_equal(intRange3));
 
     ASSERT_TRUE(intRange1 == intRange2);
     ASSERT_TRUE(intRange2 == intRange1);
@@ -84,12 +84,12 @@ TEST_F(RangeTests, TestRangeIsNotEqual)
 
 TEST_F(RangeTests, TestRangeIsLess)
 {
-    ASSERT_FALSE(intRange1.isLess(intRange2));
-    ASSERT_FALSE(intRange2.isLess(intRange1));
-    ASSERT_TRUE(intRange3.isLess(intRange4));
-    ASSERT_FALSE(intRange4.isLess(intRange3));
-    ASSERT_TRUE(intRange3.isLess(intRange5));
-    ASSERT_FALSE(intRange5.isLess(intRange3));
+    ASSERT_FALSE(intRange1.is_less(intRange2));
+    ASSERT_FALSE(intRange2.is_less(intRange1));
+    ASSERT_TRUE(intRange3.is_less(intRange4));
+    ASSERT_FALSE(intRange4.is_less(intRange3));
+    ASSERT_TRUE(intRange3.is_less(intRange5));
+    ASSERT_FALSE(intRange5.is_less(intRange3));
 
     ASSERT_FALSE(intRange1 < intRange2);
     ASSERT_FALSE(intRange2 < intRange1);
@@ -131,20 +131,20 @@ TEST_F(RangeTests, TestRangeIsGreaterEqual)
 
 TEST_F(RangeTests, TestRangeIsOverlapping)
 {
-    ASSERT_FALSE(intRange1.isOverlapping(intRange2));
-    ASSERT_FALSE(intRange2.isOverlapping(intRange1));
-    ASSERT_TRUE(intRange3.isOverlapping(intRange4));
-    ASSERT_TRUE(intRange4.isOverlapping(intRange3));
-    ASSERT_FALSE(intRange3.isOverlapping(intRange5));
-    ASSERT_FALSE(intRange5.isOverlapping(intRange3));
+    ASSERT_FALSE(intRange1.is_overlapping(intRange2));
+    ASSERT_FALSE(intRange2.is_overlapping(intRange1));
+    ASSERT_TRUE(intRange3.is_overlapping(intRange4));
+    ASSERT_TRUE(intRange4.is_overlapping(intRange3));
+    ASSERT_FALSE(intRange3.is_overlapping(intRange5));
+    ASSERT_FALSE(intRange5.is_overlapping(intRange3));
 }
 
 TEST_F(RangeTests, TestRangeIsLessNoOverlap)
 {
-    ASSERT_TRUE(intRange1.isLessNoOverlap(intRange2));
-    ASSERT_TRUE(intRange2.isLessNoOverlap(intRange1));
-    ASSERT_FALSE(intRange3.isLessNoOverlap(intRange4));
-    ASSERT_FALSE(intRange4.isLessNoOverlap(intRange3));
-    ASSERT_TRUE(intRange3.isLessNoOverlap(intRange5));
-    ASSERT_FALSE(intRange5.isLessNoOverlap(intRange3));
+    ASSERT_TRUE(intRange1.is_less_no_overlap(intRange2));
+    ASSERT_TRUE(intRange2.is_less_no_overlap(intRange1));
+    ASSERT_FALSE(intRange3.is_less_no_overlap(intRange4));
+    ASSERT_FALSE(intRange4.is_less_no_overlap(intRange3));
+    ASSERT_TRUE(intRange3.is_less_no_overlap(intRange5));
+    ASSERT_FALSE(intRange5.is_less_no_overlap(intRange3));
 }

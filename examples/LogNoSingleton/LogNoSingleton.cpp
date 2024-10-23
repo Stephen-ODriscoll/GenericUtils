@@ -7,21 +7,21 @@
 
 #define GENERIC_LOGGER_NO_SINGLETON 1
 
-#include <Generic/Logger.hpp>
+#include <generic/log.hpp>
 
-#define LOG_FILE "logs/logNoSingleton.log"
+#define LOG_FILE "logs/log_no_singleton.log"
 
-Generic::Logger g_logger{};
+Generic::logger g_logger{};
 
-#define LOG_FATAL(x)    g_logger.stream(LOG_FILE, Generic::Logger::Level::Fatal, __FILE__, __LINE__, __func__) << x
-#define LOG_CRITICAL(x) g_logger.stream(LOG_FILE, Generic::Logger::Level::Critical, __FILE__, __LINE__, __func__) << x
-#define LOG_ERROR(x)    g_logger.stream(LOG_FILE, Generic::Logger::Level::Error, __FILE__, __LINE__, __func__) << x
-#define LOG_WARNING(x)  g_logger.stream(LOG_FILE, Generic::Logger::Level::Warning, __FILE__, __LINE__, __func__) << x
-#define LOG_NOTICE(x)   g_logger.stream(LOG_FILE, Generic::Logger::Level::Notice, __FILE__, __LINE__, __func__) << x
-#define LOG_INFO(x)     g_logger.stream(LOG_FILE, Generic::Logger::Level::Info, __FILE__, __LINE__, __func__) << x
-#define LOG_DEBUG(x)    g_logger.stream(LOG_FILE, Generic::Logger::Level::Debug, __FILE__, __LINE__, __func__) << x
-#define LOG_TRACE(x)    g_logger.stream(LOG_FILE, Generic::Logger::Level::Trace, __FILE__, __LINE__, __func__) << x
-#define LOG_VERBOSE(x)  g_logger.stream(LOG_FILE, Generic::Logger::Level::Verbose, __FILE__, __LINE__, __func__) << x
+#define LOG_FATAL(x)    g_logger.stream(LOG_FILE, Generic::logger::level::fatal, __FILE__, __LINE__, __func__) << x
+#define LOG_CRITICAL(x) g_logger.stream(LOG_FILE, Generic::logger::level::critical, __FILE__, __LINE__, __func__) << x
+#define LOG_ERROR(x)    g_logger.stream(LOG_FILE, Generic::logger::level::error, __FILE__, __LINE__, __func__) << x
+#define LOG_WARNING(x)  g_logger.stream(LOG_FILE, Generic::logger::level::warning, __FILE__, __LINE__, __func__) << x
+#define LOG_NOTICE(x)   g_logger.stream(LOG_FILE, Generic::logger::level::notice, __FILE__, __LINE__, __func__) << x
+#define LOG_INFO(x)     g_logger.stream(LOG_FILE, Generic::logger::level::info, __FILE__, __LINE__, __func__) << x
+#define LOG_DEBUG(x)    g_logger.stream(LOG_FILE, Generic::logger::level::debug, __FILE__, __LINE__, __func__) << x
+#define LOG_TRACE(x)    g_logger.stream(LOG_FILE, Generic::logger::level::trace, __FILE__, __LINE__, __func__) << x
+#define LOG_VERBOSE(x)  g_logger.stream(LOG_FILE, Generic::logger::level::verbose, __FILE__, __LINE__, __func__) << x
 
 int main(int argc, char* argv[])
 {

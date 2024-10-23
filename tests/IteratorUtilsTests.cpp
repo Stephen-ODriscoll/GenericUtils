@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/IteratorUtils.hpp"
+#include "generic/iterator_utils.hpp"
 
 #include <gtest/gtest.h>
 
@@ -101,114 +101,114 @@ TEST_F(IteratorUtilsTests, TestEqualsUseSizeReturnsFalse)
 
 TEST_F(IteratorUtilsTests, TestBeginsWithUseEndReturnsTrue)
 {
-    ASSERT_TRUE(TEST_USE_END_1(Generic::beginsWith, empty, empty));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::begins_with, empty, empty));
 
-    ASSERT_TRUE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, zeroToFour));
-    ASSERT_TRUE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, zeroToFour2));
-    ASSERT_TRUE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, zeroToThree));
-    ASSERT_TRUE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, zero));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::begins_with, zeroToFour, zeroToFour));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::begins_with, zeroToFour, zeroToFour2));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::begins_with, zeroToFour, zeroToThree));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::begins_with, zeroToFour, zero));
 }
 
 TEST_F(IteratorUtilsTests, TestBeginsWithUseEndReturnsFalse)
 {
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, fiveToNine));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, oneToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, zeroToFour, one));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, zeroToFour, fiveToNine));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, zeroToFour, oneToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, zeroToFour, one));
 
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, fiveToNine, zeroToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, fiveToNine, oneToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, fiveToNine, one));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, fiveToNine, zeroToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, fiveToNine, oneToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, fiveToNine, one));
 
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, oneToFour, zeroToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, oneToFour, fiveToNine));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, oneToFour, zeroToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, oneToFour, fiveToNine));
 
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, one, zeroToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, one, fiveToNine));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::beginsWith, one, oneToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, one, zeroToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, one, fiveToNine));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::begins_with, one, oneToFour));
 }
 
 TEST_F(IteratorUtilsTests, TestBeginsWithUseSizeReturnsTrue)
 {
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::beginsWith, empty, empty));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::begins_with, empty, empty));
 
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, zeroToFour));
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, zeroToFour2));
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, zeroToThree));
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, zero));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, zeroToFour));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, zeroToFour2));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, zeroToThree));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, zero));
 }
 
 TEST_F(IteratorUtilsTests, TestBeginsWithUseSizeReturnsFalse)
 {
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, fiveToNine));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, oneToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, zeroToFour, one));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, fiveToNine));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, oneToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, zeroToFour, one));
 
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, fiveToNine, zeroToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, fiveToNine, oneToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, fiveToNine, one));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, fiveToNine, zeroToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, fiveToNine, oneToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, fiveToNine, one));
 
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, oneToFour, zeroToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, oneToFour, fiveToNine));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, oneToFour, zeroToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, oneToFour, fiveToNine));
 
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, one, zeroToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, one, fiveToNine));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::beginsWith, one, oneToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, one, zeroToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, one, fiveToNine));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::begins_with, one, oneToFour));
 }
 
 TEST_F(IteratorUtilsTests, TestEndsWithUseEndReturnsTrue)
 {
-    ASSERT_TRUE(TEST_USE_END_1(Generic::endsWith, empty, empty));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::ends_with, empty, empty));
 
-    ASSERT_TRUE(TEST_USE_END_1(Generic::endsWith, zeroToFour, zeroToFour));
-    ASSERT_TRUE(TEST_USE_END_1(Generic::endsWith, zeroToFour, zeroToFour2));
-    ASSERT_TRUE(TEST_USE_END_1(Generic::endsWith, zeroToFour, oneToFour));
-    ASSERT_TRUE(TEST_USE_END_1(Generic::endsWith, zeroToFour, four));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::ends_with, zeroToFour, zeroToFour));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::ends_with, zeroToFour, zeroToFour2));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::ends_with, zeroToFour, oneToFour));
+    ASSERT_TRUE(TEST_USE_END_1(Generic::ends_with, zeroToFour, four));
 }
 
 TEST_F(IteratorUtilsTests, TestEndsWithUseEndReturnsFalse)
 {
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, zeroToFour, fiveToNine));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, zeroToFour, zeroToThree));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, zeroToFour, three));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, zeroToFour, fiveToNine));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, zeroToFour, zeroToThree));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, zeroToFour, three));
 
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, fiveToNine, zeroToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, fiveToNine, zeroToThree));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, fiveToNine, three));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, fiveToNine, zeroToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, fiveToNine, zeroToThree));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, fiveToNine, three));
 
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, zeroToThree, zeroToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, zeroToThree, fiveToNine));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, zeroToThree, zeroToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, zeroToThree, fiveToNine));
 
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, three, zeroToFour));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, three, fiveToNine));
-    ASSERT_FALSE(TEST_USE_END_1(Generic::endsWith, three, zeroToThree));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, three, zeroToFour));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, three, fiveToNine));
+    ASSERT_FALSE(TEST_USE_END_1(Generic::ends_with, three, zeroToThree));
 }
 
 TEST_F(IteratorUtilsTests, TestEndsWithUseSizeReturnsTrue)
 {
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::endsWith, empty, empty));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::ends_with, empty, empty));
 
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, zeroToFour));
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, zeroToFour2));
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, oneToFour));
-    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, four));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, zeroToFour));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, zeroToFour2));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, oneToFour));
+    ASSERT_TRUE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, four));
 }
 
 TEST_F(IteratorUtilsTests, TestEndsWithUseSizeReturnsFalse)
 {
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, fiveToNine));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, zeroToThree));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, zeroToFour, three));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, fiveToNine));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, zeroToThree));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, zeroToFour, three));
 
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, fiveToNine, zeroToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, fiveToNine, zeroToThree));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, fiveToNine, three));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, fiveToNine, zeroToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, fiveToNine, zeroToThree));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, fiveToNine, three));
 
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, zeroToThree, zeroToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, zeroToThree, fiveToNine));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, zeroToThree, zeroToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, zeroToThree, fiveToNine));
 
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, three, zeroToFour));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, three, fiveToNine));
-    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::endsWith, three, zeroToThree));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, three, zeroToFour));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, three, fiveToNine));
+    ASSERT_FALSE(TEST_USE_SIZE_1(Generic::ends_with, three, zeroToThree));
 }
 
 TEST_F(IteratorUtilsTests, TestFindElemUseEndReturnsPosition)
@@ -299,15 +299,15 @@ TEST_F(IteratorUtilsTests, TestFindIfUseEndReturnsPosition)
     auto equalsThree{ [](int i) { return i == 3; } };
     auto equalsFour { [](int i) { return i == 4; } };
 
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, zeroToFourTwice, equalsZero), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, zeroToFourTwice, equalsOne), zeroToFourTwice.begin() + 1);
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin() + 2);
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, zeroToFourTwice, equalsThree), zeroToFourTwice.begin() + 3);
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, zeroToFourTwice, equalsFour), zeroToFourTwice.begin() + 4);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, zeroToFourTwice, equalsZero), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, zeroToFourTwice, equalsOne), zeroToFourTwice.begin() + 1);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin() + 2);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, zeroToFourTwice, equalsThree), zeroToFourTwice.begin() + 3);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, zeroToFourTwice, equalsFour), zeroToFourTwice.begin() + 4);
 
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, fourZeroOne, equalsFour), fourZeroOne.begin());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, fourZeroOne, equalsZero), fourZeroOne.begin() + 1);
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, fourZeroOne, equalsOne), fourZeroOne.begin() + 2);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, fourZeroOne, equalsFour), fourZeroOne.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, fourZeroOne, equalsZero), fourZeroOne.begin() + 1);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, fourZeroOne, equalsOne), fourZeroOne.begin() + 2);
 }
 
 TEST_F(IteratorUtilsTests, TestFindIfUseEndReturnsEnd)
@@ -315,8 +315,8 @@ TEST_F(IteratorUtilsTests, TestFindIfUseEndReturnsEnd)
     auto equalsZero{ [](int i) { return i == 0; } };
     auto equalsFive{ [](int i) { return i == 5; } };
 
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, empty, equalsZero), empty.end());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIf, zeroToFourTwice, equalsFive), zeroToFourTwice.end());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, empty, equalsZero), empty.end());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if, zeroToFourTwice, equalsFive), zeroToFourTwice.end());
 }
 
 TEST_F(IteratorUtilsTests, TestFindIfUseSizeReturnsPosition)
@@ -327,15 +327,15 @@ TEST_F(IteratorUtilsTests, TestFindIfUseSizeReturnsPosition)
     auto equalsThree{ [](int i) { return i == 3; } };
     auto equalsFour { [](int i) { return i == 4; } };
 
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, zeroToFourTwice, equalsZero), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, zeroToFourTwice, equalsOne), zeroToFourTwice.begin() + 1);
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin() + 2);
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, zeroToFourTwice, equalsThree), zeroToFourTwice.begin() + 3);
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, zeroToFourTwice, equalsFour), zeroToFourTwice.begin() + 4);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, zeroToFourTwice, equalsZero), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, zeroToFourTwice, equalsOne), zeroToFourTwice.begin() + 1);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin() + 2);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, zeroToFourTwice, equalsThree), zeroToFourTwice.begin() + 3);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, zeroToFourTwice, equalsFour), zeroToFourTwice.begin() + 4);
 
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, fourZeroOne, equalsFour), fourZeroOne.begin());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, fourZeroOne, equalsZero), fourZeroOne.begin() + 1);
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, fourZeroOne, equalsOne), fourZeroOne.begin() + 2);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, fourZeroOne, equalsFour), fourZeroOne.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, fourZeroOne, equalsZero), fourZeroOne.begin() + 1);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, fourZeroOne, equalsOne), fourZeroOne.begin() + 2);
 }
 
 TEST_F(IteratorUtilsTests, TestFindIfUseSizeReturnsEnd)
@@ -343,8 +343,8 @@ TEST_F(IteratorUtilsTests, TestFindIfUseSizeReturnsEnd)
     auto equalsZero{ [](int i) { return i == 0; } };
     auto equalsFive{ [](int i) { return i == 5; } };
 
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, empty, equalsZero), empty.end());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIf, zeroToFourTwice, equalsFive), zeroToFourTwice.end());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, empty, equalsZero), empty.end());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if, zeroToFourTwice, equalsFive), zeroToFourTwice.end());
 }
 
 TEST_F(IteratorUtilsTests, TestFindIfNotUseEndReturnsPosition)
@@ -355,15 +355,15 @@ TEST_F(IteratorUtilsTests, TestFindIfNotUseEndReturnsPosition)
     auto equalsThree{ [](int i) { return i == 3; } };
     auto equalsFour { [](int i) { return i == 4; } };
 
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, zeroToFourTwice, equalsZero), zeroToFourTwice.begin() + 1);
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, zeroToFourTwice, equalsOne), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, zeroToFourTwice, equalsThree), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, zeroToFourTwice, equalsFour), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, zeroToFourTwice, equalsZero), zeroToFourTwice.begin() + 1);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, zeroToFourTwice, equalsOne), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, zeroToFourTwice, equalsThree), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, zeroToFourTwice, equalsFour), zeroToFourTwice.begin());
 
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, fourZeroOne, equalsFour), fourZeroOne.begin() + 1);
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, fourZeroOne, equalsZero), fourZeroOne.begin());
-    ASSERT_EQ(TEST_USE_END_2(Generic::findIfNot, fourZeroOne, equalsOne), fourZeroOne.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, fourZeroOne, equalsFour), fourZeroOne.begin() + 1);
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, fourZeroOne, equalsZero), fourZeroOne.begin());
+    ASSERT_EQ(TEST_USE_END_2(Generic::find_if_not, fourZeroOne, equalsOne), fourZeroOne.begin());
 }
 
 TEST_F(IteratorUtilsTests, TestFindIfNotUseSizeReturnsPosition)
@@ -374,15 +374,15 @@ TEST_F(IteratorUtilsTests, TestFindIfNotUseSizeReturnsPosition)
     auto equalsThree{ [](int i) { return i == 3; } };
     auto equalsFour { [](int i) { return i == 4; } };
 
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, zeroToFourTwice, equalsZero), zeroToFourTwice.begin() + 1);
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, zeroToFourTwice, equalsOne), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, zeroToFourTwice, equalsThree), zeroToFourTwice.begin());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, zeroToFourTwice, equalsFour), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, zeroToFourTwice, equalsZero), zeroToFourTwice.begin() + 1);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, zeroToFourTwice, equalsOne), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, zeroToFourTwice, equalsTwo), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, zeroToFourTwice, equalsThree), zeroToFourTwice.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, zeroToFourTwice, equalsFour), zeroToFourTwice.begin());
 
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, fourZeroOne, equalsFour), fourZeroOne.begin() + 1);
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, fourZeroOne, equalsZero), fourZeroOne.begin());
-    ASSERT_EQ(TEST_USE_SIZE_2(Generic::findIfNot, fourZeroOne, equalsOne), fourZeroOne.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, fourZeroOne, equalsFour), fourZeroOne.begin() + 1);
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, fourZeroOne, equalsZero), fourZeroOne.begin());
+    ASSERT_EQ(TEST_USE_SIZE_2(Generic::find_if_not, fourZeroOne, equalsOne), fourZeroOne.begin());
 }
 
 TEST_F(IteratorUtilsTests, TestContainsElemUseEndReturnsTrue)

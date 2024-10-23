@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/FileSystem.hpp"
+#include "generic/filesystem.hpp"
 
 #include <gtest/gtest.h>
 

@@ -11,18 +11,18 @@
 
 namespace Generic
 {
-    class Stopwatch
+    class stopwatch
     {
     public:
-        typedef std::chrono::high_resolution_clock Clock;
+        typedef std::chrono::high_resolution_clock clock;
 
     private:
-        Clock::duration     m_time;
-        Clock::time_point   m_start;
+        clock::duration     m_time;
+        clock::time_point   m_start;
         bool                m_isRunning;
 
     public:
-        Stopwatch(const bool startNow = false) :
+        stopwatch(const bool startNow = false) :
             m_time      {},
             m_start     {},
             m_isRunning { false }
@@ -33,12 +33,12 @@ namespace Generic
             }
         }
 
-        Stopwatch(const Stopwatch& other) :
+        stopwatch(const stopwatch& other) :
             m_time      { other.m_time },
             m_start     { other.m_start },
             m_isRunning { other.m_isRunning } {}
 
-        ~Stopwatch() {}
+        ~stopwatch() {}
 
         void reset()
         {
@@ -50,7 +50,7 @@ namespace Generic
         void restart()
         {
             m_time = {};
-            m_start = Clock::now();
+            m_start = clock::now();
             m_isRunning = true;
         }
 
@@ -58,7 +58,7 @@ namespace Generic
         {
             if (!m_isRunning)
             {
-                m_start = Clock::now();
+                m_start = clock::now();
                 m_isRunning = true;
             }
         }
@@ -67,12 +67,12 @@ namespace Generic
         {
             if (m_isRunning)
             {
-                m_time += (Clock::now() - m_start);
+                m_time += (clock::now() - m_start);
                 m_isRunning = false;
             }
         }
 
-        auto stopAndTime()
+        auto stop_and_time()
         {
             stop();
             return m_time;
@@ -80,10 +80,10 @@ namespace Generic
 
         auto time() const
         {
-            return (m_isRunning ? (m_time + (Clock::now() - m_start)) : m_time);
+            return (m_isRunning ? (m_time + (clock::now() - m_start)) : m_time);
         }
 
-        bool isRunning() const
+        bool is_running() const
         {
             return m_isRunning;
         }
@@ -94,18 +94,18 @@ namespace Generic
         template<class DurationT>
         auto count(const long long rollover) const { return (count<DurationT>() % rollover); }
 
-        auto inNanoseconds()    const   { return count<std::chrono::nanoseconds>(); }
-        auto inMicroseconds()   const   { return count<std::chrono::microseconds>(); }
-        auto inMilliseconds()   const   { return count<std::chrono::milliseconds>(); }
-        auto inSeconds()        const   { return count<std::chrono::seconds>(); }
-        auto inMinutes()        const   { return count<std::chrono::minutes>(); }
-        auto inHours()          const   { return count<std::chrono::hours>(); }
+        auto in_nanoseconds()    const   { return count<std::chrono::nanoseconds>(); }
+        auto in_microseconds()   const   { return count<std::chrono::microseconds>(); }
+        auto in_milliseconds()   const   { return count<std::chrono::milliseconds>(); }
+        auto in_seconds()        const   { return count<std::chrono::seconds>(); }
+        auto in_minutes()        const   { return count<std::chrono::minutes>(); }
+        auto in_hours()          const   { return count<std::chrono::hours>(); }
 
-        auto nanosecondsPart()  const   { return count<std::chrono::nanoseconds>(1'000); }
-        auto microsecondsPart() const   { return count<std::chrono::microseconds>(1'000); }
-        auto millisecondsPart() const   { return count<std::chrono::milliseconds>(1'000); }
-        auto secondsPart()      const   { return count<std::chrono::seconds>(60); }
-        auto minutesPart()      const   { return count<std::chrono::minutes>(60); }
-        auto hoursPart()        const   { return count<std::chrono::hours>(); }
+        auto nanoseconds_part()  const   { return count<std::chrono::nanoseconds>(1'000); }
+        auto microseconds_part() const   { return count<std::chrono::microseconds>(1'000); }
+        auto milliseconds_part() const   { return count<std::chrono::milliseconds>(1'000); }
+        auto seconds_part()      const   { return count<std::chrono::seconds>(60); }
+        auto minutes_part()      const   { return count<std::chrono::minutes>(60); }
+        auto hours_part()        const   { return count<std::chrono::hours>(); }
     };
 }

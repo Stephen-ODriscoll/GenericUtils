@@ -13,29 +13,29 @@
 namespace Generic
 {
     template<class KeyT, class ValueT>
-    class LRUCache
+    class lru_cache
     {
     public:
-        typedef KeyT KeyType;
-        typedef ValueT ValueType;
-        typedef std::list<KeyType> ListType;
-        typedef std::map<KeyType, std::pair<ValueType, typename ListType::iterator>> MapType;
+        typedef KeyT key_type;
+        typedef ValueT value_type;
+        typedef std::list<key_type> list_type;
+        typedef std::map<key_type, std::pair<value_type, typename list_type::iterator>> map_type;
 
     private:
         std::size_t m_capacity;
-        ListType    m_list{};
-        MapType     m_map{};
+        list_type   m_list{};
+        map_type    m_map{};
     
     public:
-        LRUCache(const std::size_t capacity) :
+        lru_cache(const std::size_t capacity) :
             m_capacity{ capacity } {}
 
-        ~LRUCache() {}
+        ~lru_cache() {}
 
         std::size_t size()                  const   { return m_map.size(); }
         std::size_t capacity()              const   { return m_capacity; }
         bool empty()                        const   { return m_map.empty(); }
-        bool contains(const KeyType& key)   const   { return (m_map.find(key) != m_map.end()); }
+        bool contains(const key_type& key)  const   { return (m_map.find(key) != m_map.end()); }
 
         void capacity(const std::size_t newCapacity)
         {
@@ -44,11 +44,11 @@ namespace Generic
             // While cache is above capacity, evict the least recently used item
             while (m_capacity < size())
             {
-                evictLRU();
+                evict_lru();
             }
         }
 
-        void insert(const KeyType& key, const ValueType& value)
+        void insert(const key_type& key, const value_type& value)
         {
             auto itMap{ m_map.find(key) };
             if (itMap == m_map.end())
@@ -58,7 +58,7 @@ namespace Generic
                     // If cache is full, evict the least recently used item
                     if (m_capacity <= size())
                     {
-                        evictLRU();
+                        evict_lru();
                     }
 
                     m_list.push_front(key);
@@ -69,11 +69,11 @@ namespace Generic
             {
                 // Replace value in cache with new value
                 itMap->second.first = value;
-                moveToFront(itMap);
+                move_to_front(itMap);
             }
         }
 
-        bool get(const KeyType& key, ValueType& value)
+        bool get(const key_type& key, value_type& value)
         {
             auto itMap{ m_map.find(key) };
             if (itMap == m_map.end())
@@ -82,11 +82,11 @@ namespace Generic
             }
 
             value = itMap->second.first;
-            moveToFront(itMap);
+            move_to_front(itMap);
             return true;
         }
 
-        bool remove(const KeyType& key)
+        bool remove(const key_type& key)
         {
             auto itMap{ m_map.find(key) };
             if (itMap == m_map.end())
@@ -106,7 +106,7 @@ namespace Generic
         }
 
     private:
-        void moveToFront(typename MapType::iterator itMap)
+        void move_to_front(typename map_type::iterator itMap)
         {
             // Move item to front of most recently used list
             auto itList{ itMap->second.second };
@@ -119,7 +119,7 @@ namespace Generic
             }
         }
 
-        void evictLRU()
+        void evict_lru()
         {
             // Evict least recently used item
             auto itList{ --m_list.end() };

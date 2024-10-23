@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/Stopwatch.hpp"
+#include "Generic/stopwatch.hpp"
 
 #include <gtest/gtest.h>
 
@@ -21,224 +21,224 @@ protected:
 // Basic sanity, timings are difficult to test
 TEST_F(StopwatchTests, TestSeconds)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
     stopwatch.stop();
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
-    ASSERT_EQ(stopwatch.inSeconds(), 1);
-    ASSERT_EQ(stopwatch.secondsPart(), 1);
+    ASSERT_EQ(stopwatch.in_seconds(), 1);
+    ASSERT_EQ(stopwatch.seconds_part(), 1);
 }
 
 TEST_F(StopwatchTests, TestCopyConstructor)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.stop();
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
-    Generic::Stopwatch stopwatch2{ stopwatch };
+    Generic::stopwatch stopwatch2{ stopwatch };
     ASSERT_EQ(stopwatch.time(), stopwatch2.time());
 }
 
 TEST_F(StopwatchTests, TestTimeCallDoesNotStop)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     auto firstTime{ stopwatch.time() };
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     stopwatch.stop();
     auto secondTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_NE(firstTime, secondTime);
 }
 
 TEST_F(StopwatchTests, TestStopCallStaysStopped)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.stop();
     auto firstTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     auto secondTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_EQ(firstTime, secondTime);
 }
 
 TEST_F(StopwatchTests, TestStopAndTimeCallStaysStopped)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
-    auto firstTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto firstTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     auto secondTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_EQ(firstTime, secondTime);
 }
 
 TEST_F(StopwatchTests, TestStopCallOnStoppedNoChange)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.stop();
     auto firstTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     stopwatch.stop();
     auto secondTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_EQ(firstTime, secondTime);
 }
 
 TEST_F(StopwatchTests, TestStopAndTimeCallOnStoppedNoChange)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
-    auto firstTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto firstTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-    auto secondTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto secondTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_EQ(firstTime, secondTime);
 }
 
 TEST_F(StopwatchTests, TestStartCallDoesNotRestart)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     auto firstTime{ stopwatch.time() };
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.start();
     auto secondTime{ stopwatch.time() };
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     ASSERT_TRUE(firstTime <= secondTime);
 }
 
 TEST_F(StopwatchTests, TestRestartCallDoesRestart)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     auto firstTime{ stopwatch.time() };
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.restart();
     auto secondTime{ stopwatch.time() };
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     ASSERT_TRUE(secondTime < firstTime);
 }
 
 TEST_F(StopwatchTests, TestStopCallAndStartCallDoesNotRestart)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     stopwatch.stop();
     auto firstTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     stopwatch.start();
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.stop();
     auto secondTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_TRUE(firstTime <= secondTime);
 }
 
 TEST_F(StopwatchTests, TestStopAndTimeCallAndStartCallDoesNotRestart)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-    auto firstTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto firstTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     stopwatch.start();
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
-    auto secondTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto secondTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_TRUE(firstTime <= secondTime);
 }
 
 TEST_F(StopwatchTests, TestStopCallAndRestartCallDoesRestart)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     stopwatch.stop();
     auto firstTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     stopwatch.restart();
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
     stopwatch.stop();
     auto secondTime{ stopwatch.time() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_TRUE(secondTime < firstTime);
 }
 
 TEST_F(StopwatchTests, TestStopAndTimeCallAndRestartCallDoesRestart)
 {
-    Generic::Stopwatch stopwatch{ true };
-    ASSERT_TRUE(stopwatch.isRunning());
+    Generic::stopwatch stopwatch{ true };
+    ASSERT_TRUE(stopwatch.is_running());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-    auto firstTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto firstTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     stopwatch.restart();
-    ASSERT_TRUE(stopwatch.isRunning());
+    ASSERT_TRUE(stopwatch.is_running());
 
-    auto secondTime{ stopwatch.stopAndTime() };
-    ASSERT_FALSE(stopwatch.isRunning());
+    auto secondTime{ stopwatch.stop_and_time() };
+    ASSERT_FALSE(stopwatch.is_running());
 
     ASSERT_TRUE(secondTime < firstTime);
 }

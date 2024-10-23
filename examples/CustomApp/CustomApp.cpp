@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include <Generic.hpp>
+#include <generic.hpp>
 
 int main(int argc, char* argv[])
 {

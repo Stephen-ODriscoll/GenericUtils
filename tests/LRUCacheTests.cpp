@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/LRUCache.hpp"
+#include "generic/lru_cache.hpp"
 
 #include <gtest/gtest.h>
 
@@ -14,7 +14,7 @@
 class LRUCacheTests : public testing::Test
 {
 public:
-    Generic::LRUCache<std::size_t, std::size_t> cache{ CACHE_CAPACITY };
+    Generic::lru_cache<std::size_t, std::size_t> cache{ CACHE_CAPACITY };
 
 protected:
     LRUCacheTests() {}

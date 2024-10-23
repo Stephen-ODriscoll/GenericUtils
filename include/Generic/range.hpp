@@ -10,37 +10,37 @@
 namespace Generic
 {
     template<class T>
-    struct Range
+    struct range
     {
         T begin;
         T end;
 
-        Range(const T& begin, const T& end) :
+        range(const T& begin, const T& end) :
             begin   { begin },
             end     { end } {}
 
-        Range(const Range& other) :
+        range(const range& other) :
             begin   { other.begin },
             end     { other.end } {}
 
-        ~Range() {}
+        ~range() {}
 
         auto size() const
         {
             return (end - begin);
         }
 
-        bool isEqual(const Range& other) const
+        bool is_equal(const range& other) const
         {
             return (begin == other.begin && end == other.end);
         }
 
-        bool isOverlapping(const Range& other) const
+        bool is_overlapping(const range& other) const
         {
             return (begin < other.end && other.begin < end);
         }
 
-        bool isLess(const Range& other) const
+        bool is_less(const range& other) const
         {
             return ((begin == other.begin) ? (end < other.end) : (begin < other.begin));
         }
@@ -53,47 +53,47 @@ namespace Generic
         // As such, they will be hidden in a sorted container.
         //
         // This is correct, technically a range of size 0 doesn't physically exist.
-        bool isLessNoOverlap(const Range& other) const
+        bool is_less_no_overlap(const range& other) const
         {
             return (end <= other.begin);
         }
 
-        bool operator==(const Range& other) const
+        bool operator==(const range& other) const
         {
-            return isEqual(other);
+            return is_equal(other);
         }
 
-        bool operator!=(const Range& other) const
+        bool operator!=(const range& other) const
         {
-            return !(isEqual(other));
+            return !(is_equal(other));
         }
 
-        bool operator<(const Range& other) const
+        bool operator<(const range& other) const
         {
-            return isLess(other);
+            return is_less(other);
         }
 
-        bool operator>(const Range& other) const
+        bool operator>(const range& other) const
         {
-            return other.isLess(*this);
+            return other.is_less(*this);
         }
 
-        bool operator<=(const Range& other) const
+        bool operator<=(const range& other) const
         {
-            return !(other.isLess(*this));
+            return !(other.is_less(*this));
         }
 
-        bool operator>=(const Range& other) const
+        bool operator>=(const range& other) const
         {
-            return !(isLess(other));
+            return !(is_less(other));
         }
     };
 
-    typedef Range<int>                  IntRange;
-    typedef Range<unsigned int>         UIntRange;
-    typedef Range<long>                 LongRange;
-    typedef Range<unsigned long>        ULongRange;
-    typedef Range<long long>            LongLongRange;
-    typedef Range<unsigned long long>   ULongLongRange;
-    typedef Range<void*>                PVoidRange;
+    typedef range<int>                  int_range;
+    typedef range<unsigned int>         uint_range;
+    typedef range<long>                 long_range;
+    typedef range<unsigned long>        ulong_range;
+    typedef range<long long>            long_long_range;
+    typedef range<unsigned long long>   u_long_long_range;
+    typedef range<void*>                pvoid_range;
 }

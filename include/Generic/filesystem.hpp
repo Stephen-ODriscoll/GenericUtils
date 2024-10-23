@@ -27,8 +27,8 @@
 namespace Generic
 {
 #if GENERIC_FILESYSTEM_IS_EXPERIMENTAL
-    namespace FileSystem = std::experimental::filesystem;
+    namespace filesystem = std::experimental::filesystem;
 #else
-    namespace FileSystem = std::filesystem;
+    namespace filesystem = std::filesystem;
 #endif
 }

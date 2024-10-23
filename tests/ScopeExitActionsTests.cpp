@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/ScopeExitActions.hpp"
+#include "Generic/scope_exit_actions.hpp"
 
 #include <gtest/gtest.h>
 
@@ -21,7 +21,7 @@ TEST_F(ScopeExitActionsTests, TestScopeExitActionsSanity)
     bool changed{ false };
 
     {
-        Generic::ScopeExitActions scopeExitActions
+        Generic::scope_exit_actions scopeExitActions
         {
             [&changed]() { changed = true; }
         };

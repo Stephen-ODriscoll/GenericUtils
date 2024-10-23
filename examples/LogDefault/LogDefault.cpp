@@ -5,9 +5,9 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include <Generic/Logger.hpp>
+#include <generic/log.hpp>
 
-#define LOG_FILE "logs/logDefault.log"
+#define LOG_FILE "logs/log_default.log"
 
 #define LOG_FATAL(x)    GENERIC_LOG_STREAM_FATAL(LOG_FILE, x)
 #define LOG_CRITICAL(x) GENERIC_LOG_STREAM_CRITICAL(LOG_FILE, x)

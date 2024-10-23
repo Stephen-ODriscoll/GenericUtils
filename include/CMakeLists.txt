@@ -5,22 +5,22 @@
 # Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 #
 
-project(GenericUtils)
+project(generic_utils)
 
 add_library(
     ${PROJECT_NAME}
     INTERFACE
-    Generic.hpp
-    Generic/Compare.hpp
-    Generic/ContainerUtils.hpp
-    Generic/FileSystem.hpp
-    Generic/IteratorUtils.hpp
-    Generic/Locale.hpp
-    Generic/Logger.hpp
-    Generic/LRUCache.hpp
-    Generic/Range.hpp
-    Generic/SafeLRUCache.hpp
-    Generic/ScopeExitActions.hpp
-    Generic/Standard.hpp
-    Generic/Stopwatch.hpp
-    Generic/StringUtils.hpp)
+    generic.hpp
+    generic/compare.hpp
+    generic/container_utils.hpp
+    generic/filesystem.hpp
+    generic/iterator_utils.hpp
+    generic/locale.hpp
+    generic/log.hpp
+    generic/lru_cache.hpp
+    generic/range.hpp
+    generic/safe_lru_cache.hpp
+    generic/Scope_exit_actions.hpp
+    generic/standard.hpp
+    generic/stopwatch.hpp
+    generic/string_utils.hpp)

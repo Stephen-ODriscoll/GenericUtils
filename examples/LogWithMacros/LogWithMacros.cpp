@@ -14,18 +14,18 @@
 #define GENERIC_LOGGER_DEFAULT_HEADER_UNDERLINE_FILL '='
 #define GENERIC_LOGGER_DEFAULT_SEPARATOR "  "
 #define GENERIC_LOGGER_DEFAULT_HEADER_UNDERLINE_SEPARATOR "  "
-#define GENERIC_LOGGER_DEFAULT_LEVEL Generic::Logger::Level::Info
-#define GENERIC_LOGGER_DEFAULT_LEVEL_FORMAT Generic::Logger::LevelFormat::Short
+#define GENERIC_LOGGER_DEFAULT_LOG_LEVEL Generic::logger::level::info
+#define GENERIC_LOGGER_DEFAULT_LOG_LEVEL_FORMAT Generic::logger::level_format::abbreviated
 #define GENERIC_LOGGER_DEFAULT_META_DATA_COLUMNS \
-    Generic::Logger::MetaDataColumn::Timestamp, \
-    Generic::Logger::MetaDataColumn::ThreadID, \
-    Generic::Logger::MetaDataColumn::Level, \
-    Generic::Logger::MetaDataColumn::FileName, \
-    Generic::Logger::MetaDataColumn::Line
+    Generic::logger::meta_data::timestamp, \
+    Generic::logger::meta_data::thread_id, \
+    Generic::logger::meta_data::level, \
+    Generic::logger::meta_data::file_name, \
+    Generic::logger::meta_data::line
 
-#include <Generic/Logger.hpp>
+#include <generic/log.hpp>
 
-#define LOG_FILE "logs/logWithMacros.log"
+#define LOG_FILE "logs/log_with_macros.log"
 
 #define LOG_FATAL(x)    GENERIC_LOG_STREAM_FATAL(LOG_FILE, x)
 #define LOG_CRITICAL(x) GENERIC_LOG_STREAM_CRITICAL(LOG_FILE, x)

@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/Logger.hpp"
+#include "Generic/log.hpp"
 
 #include <gtest/gtest.h>
 
@@ -42,9 +42,9 @@ protected:
 
     void TearDown() override
     {
-        if (Generic::FileSystem::exists(LOG_FILE))
+        if (Generic::filesystem::exists(LOG_FILE))
         {
-            Generic::FileSystem::remove(LOG_FILE);
+            Generic::filesystem::remove(LOG_FILE);
         }
     }
 };
@@ -86,7 +86,7 @@ std::string getLastLog()
 std::string getLastLogMessage()
 {
     auto lastLog    { getLastLog() };
-    auto separator  { Generic::Logger::getInstance().separator() };
+    auto separator  { Generic::logger::get_instance().separator() };
     auto index      { lastLog.rfind(separator) };
 
     return ((index == std::string::npos) ? lastLog : lastLog.substr(index + separator.size()));

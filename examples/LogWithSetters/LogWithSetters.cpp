@@ -5,9 +5,9 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include <Generic/Logger.hpp>
+#include <generic/log.hpp>
 
-#define LOG_FILE "logs/logWithSetters.log"
+#define LOG_FILE "logs/log_with_setters.log"
 
 #define LOG_FATAL(x)    GENERIC_LOG_STREAM_FATAL(LOG_FILE, x)
 #define LOG_CRITICAL(x) GENERIC_LOG_STREAM_CRITICAL(LOG_FILE, x)
@@ -21,24 +21,24 @@
 
 int main(int argc, char* argv[])
 {
-    Generic::Logger::getInstance()
-        .timestampFormat("%H:%M:%S.%.3S")
-        .timestampLength(12)
-        .bufferMaxSize(1000)
-        .bufferFlushSize(100)
-        .fileRotationSize(1024) // 1 KB
-        .fileRotationLimit(5)
-        .headerUnderlineFill('=')
+    Generic::logger::logger::get_instance()
+        .timestamp_format("%H:%M:%S.%.3S")
+        .timestamp_length(12)
+        .buffer_max_size(1000)
+        .buffer_flush_size(100)
+        .file_rotation_size(1024) // 1 KB
+        .file_rotation_limit(5)
+        .header_underline_fill('=')
         .separator("  ")
-        .headerUnderlineSeparator("  ")
-        .level(Generic::Logger::Level::Info)
-        .levelFormat(Generic::Logger::LevelFormat::Short)
-        .metaDataColumns(
-            Generic::Logger::MetaDataColumn::Timestamp,
-            Generic::Logger::MetaDataColumn::ThreadID,
-            Generic::Logger::MetaDataColumn::Level,
-            Generic::Logger::MetaDataColumn::FileName,
-            Generic::Logger::MetaDataColumn::Line);
+        .header_underline_separator("  ")
+        .log_level(Generic::logger::level::info)
+        .log_level_format(Generic::logger::level_format::abbreviated)
+        .meta_data_columns(
+            Generic::logger::meta_data::timestamp,
+            Generic::logger::meta_data::thread_id,
+            Generic::logger::meta_data::level,
+            Generic::logger::meta_data::file_name,
+            Generic::logger::meta_data::line);
 
     std::size_t numLogs{ 100 };
     for (std::size_t i{ 0 }; i < numLogs; ++i)

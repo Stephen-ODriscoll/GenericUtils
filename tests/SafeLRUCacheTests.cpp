@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/SafeLRUCache.hpp"
+#include "Generic/safe_lru_cache.hpp"
 
 #include <gtest/gtest.h>
 
@@ -14,7 +14,7 @@
 class SafeLRUCacheTests : public testing::Test
 {
 public:
-    Generic::SafeLRUCache<std::size_t, std::size_t> safeCache{ SAFE_CACHE_CAPACITY };
+    Generic::safe_lru_cache<std::size_t, std::size_t> safeCache{ SAFE_CACHE_CAPACITY };
 
 protected:
     SafeLRUCacheTests() {}

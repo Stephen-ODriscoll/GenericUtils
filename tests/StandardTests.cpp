@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/Standard.hpp"
+#include "Generic/standard.hpp"
 
 #include <gtest/gtest.h>
 

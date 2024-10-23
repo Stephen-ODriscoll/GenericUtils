@@ -5,7 +5,7 @@
 * Official repository: https://github.com/Stephen-ODriscoll/GenericUtils
 */
 
-#include "Generic/Locale.hpp"
+#include "generic/locale.hpp"
 
 #include <gtest/gtest.h>
 
@@ -18,20 +18,20 @@ protected:
 
 TEST_F(LocaleTests, TestGetCLocale)
 {
-    const auto& cLocale{ Generic::getCLocale() };
+    const auto& cLocale{ Generic::get_c_locale() };
 }
 
 TEST_F(LocaleTests, TestGetSystemLocale)
 {
-    const auto& systemLocale{ Generic::getSystemLocale() };
+    const auto& systemLocale{ Generic::get_system_locale() };
 }
 
 TEST_F(LocaleTests, TestGetDefaultLocale)
 {
-    const auto& defaultLocale{ Generic::getDefaultLocale() };
+    const auto& defaultLocale{ Generic::get_default_locale() };
 }
 
 TEST_F(LocaleTests, TestGetFacet)
 {
-    const auto& facet{ Generic::getFacet<char>(Generic::getDefaultLocale()) };
+    const auto& facet{ Generic::get_facet<char>(Generic::get_default_locale()) };
 }

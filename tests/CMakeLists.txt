@@ -22,7 +22,7 @@ add_executable(
     GenericTests.cpp
     IteratorUtilsTests.cpp
     LocaleTests.cpp
-    LoggerTests.cpp
+    LogTests.cpp
     LRUCacheTests.cpp
     Main.cpp
     RangeTests.cpp

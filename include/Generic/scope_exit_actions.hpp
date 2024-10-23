@@ -12,19 +12,19 @@
 
 namespace Generic
 {
-    class ScopeExitActions
+    class scope_exit_actions
     {
         std::stack<std::function<void()>> m_actions{};
 
     public:
-        ScopeExitActions() {}
+        scope_exit_actions() {}
 
-        ScopeExitActions(const std::function<void()>& action)
+        scope_exit_actions(const std::function<void()>& action)
         {
             add(action);
         }
 
-        ~ScopeExitActions()
+        ~scope_exit_actions()
         {
             for (; !m_actions.empty(); m_actions.pop())
             {

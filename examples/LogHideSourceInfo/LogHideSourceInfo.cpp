@@ -7,9 +7,9 @@
 
 #define GENERIC_LOGGER_HIDE_SOURCE_INFO 1
 
-#include <Generic/Logger.hpp>
+#include <generic/log.hpp>
 
-#define LOG_FILE "logs/logHideSourceInfo.log"
+#define LOG_FILE "logs/log_hide_source_info.log"
 
 #define LOG_FATAL(x)    GENERIC_LOG_STREAM_FATAL(LOG_FILE, x)
 #define LOG_CRITICAL(x) GENERIC_LOG_STREAM_CRITICAL(LOG_FILE, x)
