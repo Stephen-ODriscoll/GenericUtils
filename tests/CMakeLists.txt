@@ -5,7 +5,7 @@
 # Official repository: https://github.com/Stephen-ODriscoll/PlutoUtils
 #
 
-project(PlutoUtilsTests)
+project(pluto_utils_tests)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:preprocessor")
@@ -16,21 +16,21 @@ include_directories(
 
 add_executable(
     ${PROJECT_NAME}
-    CompareTests.cpp
-    ContainerUtilsTests.cpp
-    FileSystemTests.cpp
-    PlutoTests.cpp
-    IteratorUtilsTests.cpp
-    LocaleTests.cpp
-    LoggerTests.cpp
-    LRUCacheTests.cpp
-    Main.cpp
-    RangeTests.cpp
-    SafeLRUCacheTests.cpp
-    ScopeExitActionsTests.cpp
-    StandardTests.cpp
-    StopwatchTests.cpp
-    StringUtilsTests.cpp)
+    compare_tests.cpp
+    container_utils_tests.cpp
+    filesystem_tests.cpp
+    pluto_tests.cpp
+    iterator_utils_tests.cpp
+    locale_tests.cpp
+    logger_tests.cpp
+    lru_cache_tests.cpp
+    main.cpp
+    range_tests.cpp
+    safe_lru_cache_tests.cpp
+    scope_exit_actions_tests.cpp
+    standard_tests.cpp
+    stopwatch_tests.cpp
+    string_utils_tests.cpp)
 
 target_link_libraries(
     ${PROJECT_NAME}
